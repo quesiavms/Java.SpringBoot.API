@@ -1,5 +1,6 @@
 package first.project.java.api.Dto;
 
+import first.project.java.api.Entity.TipoPagamento;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,5 +18,5 @@ public class CompraDTO {
     private String nome;
     private Date dataCompra;
     private List<ItemCompraDTO> itens;
-    private TipoPagamentoDTO tipoPagamento;
+    private TipoPagamento tipoPagamento;
 }

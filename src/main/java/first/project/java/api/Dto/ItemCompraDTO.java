@@ -10,7 +10,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ItemCompraDTO {
+    private Long idProduto;
     private ProdutoDTO produto;
-    private Integer quantidade; // Quantidade do produto na compra
-    private Double subtotal; // Opcional: quantidade * valorProduto
 }

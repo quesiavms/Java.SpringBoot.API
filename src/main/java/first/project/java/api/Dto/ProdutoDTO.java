@@ -11,6 +11,5 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ProdutoDTO {
     private String nomeProduto;
-
     private String valorProduto;
 }

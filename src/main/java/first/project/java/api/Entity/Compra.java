@@ -22,13 +22,13 @@ public class Compra {
     @Column(name = "Nome")
     private String nome;
 
-    @OneToMany(mappedBy = "compra", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ItemCompra> itens;
-
     @ManyToOne
-    @JoinColumn(name = "idProduto")
-    private Long idTipoPagamento;
+    @JoinColumn(name = "idTipoPagamento")
+    private TipoPagamento idTipoPagamento;
 
     @Column(name = "DataCompra")
     private Date dataCompra;
+
+    @OneToMany(mappedBy = "compra")
+    private List<ItemCompra> itensCompra;
 }
