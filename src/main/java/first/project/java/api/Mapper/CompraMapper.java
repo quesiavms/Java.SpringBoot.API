@@ -15,6 +15,7 @@ public class CompraMapper {
 
     public CompraDTO toDTO(Compra compra){
         CompraDTO dto = new CompraDTO();
+        dto.setIdCompra(compra.getId());
         dto.setNome(compra.getNome());
         dto.setTipoPagamento(compra.getIdTipoPagamento());
         dto.setDataCompra(compra.getDataCompra());
