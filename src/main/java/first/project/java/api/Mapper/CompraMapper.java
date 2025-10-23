@@ -4,6 +4,8 @@ import first.project.java.api.Dto.CompraDTO;
 import first.project.java.api.Entity.Compra;
 import org.springframework.stereotype.Component;
 import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class CompraMapper {
@@ -23,5 +25,11 @@ public class CompraMapper {
             dto.setItens(itemCompraMapper.toDTO(compra.getItensCompra()));
         }
         return dto;
+    }
+
+    public List<CompraDTO> toDTO(List<Compra> compra){
+        return compra.stream()
+                .map(this::toDTO)
+                .collect(Collectors.toList());
     }
 }

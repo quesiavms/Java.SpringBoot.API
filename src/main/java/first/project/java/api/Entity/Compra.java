@@ -29,6 +29,6 @@ public class Compra {
     @Column(name = "DataCompra")
     private Date dataCompra;
 
-    @OneToMany(mappedBy = "compra")
+    @OneToMany(mappedBy = "compra", cascade = CascadeType.ALL, orphanRemoval = true) // permite excluir todos itens com o id da compra
     private List<ItemCompra> itensCompra;
 }

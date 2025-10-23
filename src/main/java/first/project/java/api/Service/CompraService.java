@@ -16,6 +16,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class CompraService {
@@ -43,6 +44,11 @@ public class CompraService {
         return compraMapper.toDTO(compra);
     }
 
+    public List<CompraDTO> buscarTodasCompras(){
+        List<Compra> allCompras = compraRepository.findAll();
+        return compraMapper.toDTO(allCompras);
+    }
+
     @Transactional
     public CompraDTO salvarNovaCompra(CompraRequestDTO request) {
         TipoPagamento tipoPagamento = tipoPagamentoRepository.findById(request.getIdTipoPagamento())
@@ -63,5 +69,12 @@ public class CompraService {
             itemCompraRepository.save(item);
         }
         return compraMapper.toDTO(compraSalva);
+    }
+
+    public void deletarCompra(Long id){
+        Compra compra = compraRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Compra com ID: "+ id +"nao encontrada"));
+
+        compraRepository.delete(compra);
     }
 }
